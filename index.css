@@ -23,11 +23,11 @@ img {
     align-items: center;
 }
 
-h3 {
+.headerTitle {
     color: rgb(243, 97, 0);
     font-size: 50px;
     text-align: center;
-    margin-top: 0;
+    margin: 0;
 }
 
 .count {
@@ -35,6 +35,7 @@ h3 {
     color: rgb(217, 255, 0);
     text-align: center;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 .text {
@@ -97,7 +98,7 @@ h3 {
         font-size: 12px;
         word-spacing: 25px;
     }
-    h3 {
+    .headerTitle {
         font-size: 35px;
     }
 }
