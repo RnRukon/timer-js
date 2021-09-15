@@ -8,7 +8,8 @@ let minuteCounts = 0;
 let hourCounts = 0;
 function secondChange() {
     // millisecond-------------------------------------------
-    if (millisecondCounts < 59) {
+    if (millisecondCounts < 60) {
+
         millisecondCounts++;
         if (millisecondCounts < 10) {
             millisecondCounts = "0" + millisecondCounts;
@@ -17,30 +18,43 @@ function secondChange() {
     } else {
         millisecondCounts = 0;
     }
-    if (millisecondCounts == 59) {
+    // second-------------------------------------------
+    if (millisecondCounts == 60) {
+
 
         secondCounts++;
         if (secondCounts < 10) {
             secondCounts = "0" + secondCounts;
         }
-        second.innerText = secondCounts;
+        if (secondCounts === 60) {
+            second.innerText = "00";
+        } else {
+            second.innerText = secondCounts;
+        }
     }
     // minute-------------------------------------------
-    if (secondCounts == 59) {
+    if (secondCounts == 60) {
         secondCounts = 0;
         minuteCounts++;
         if (minuteCounts < 10) {
             minuteCounts = "0" + minuteCounts;
         }
-        minute.innerText = minuteCounts;
+        if (minuteCounts === 60) {
+            minute.innerText = "00";
+        } else {
+            minute.innerText = minuteCounts;
+        }
+
     }
     // hour-------------------------------------------------
-    if (minuteCounts == 59) {
+    if (minuteCounts == 60) {
         minuteCounts = 0;
         hourCounts++;
         if (hourCounts < 10) {
             hourCounts = "0" + hourCounts;
         }
+
+
         hour.innerText = hourCounts;
     }
 }
@@ -72,12 +86,11 @@ const off = () => {
 }
 const reset = () => {
 
-    // location.reload();
-    myFunc(off)
-    hour.innerText = '00';
-    minute.innerText = '00';
-    second.innerText = '00';
-    millisecond.innerText = '00';
-
+    location.reload();
+    // // myFunc(off)
+    // hour.innerText = '00';
+    // minute.innerText = '00';
+    // second.innerText = '00';
+    // millisecond.innerText = '00';
 
 }
