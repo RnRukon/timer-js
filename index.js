@@ -73,13 +73,15 @@ const myFunc = (r) => {
 
 const on = () => {
     myFunc(on)
+    animation();
     document.getElementById('on').setAttribute("disabled", false);
     document.getElementById('off').removeAttribute("disabled", true);
 };
 
 
 const off = () => {
-    myFunc(off)
+    myFunc(off);
+
     document.getElementById('on').removeAttribute("disabled", true);
 
     document.getElementById('off').setAttribute("disabled", false);
@@ -87,10 +89,23 @@ const off = () => {
 const reset = () => {
 
     location.reload();
-    // // myFunc(off)
-    // hour.innerText = '00';
-    // minute.innerText = '00';
-    // second.innerText = '00';
-    // millisecond.innerText = '00';
+
+}
+
+const animation = () => {
+    setInterval(() => {
+        if (parseInt(second.innerText) % 2 == 0) {
+            const colors = document.getElementsByClassName('colon');
+            for (const color of colors) {
+                color.style.color = 'red';
+            }
+        } else {
+            const colors = document.getElementsByClassName('colon');
+            for (const color of colors) {
+                color.style.color = 'yellow';
+            }
+        }
+    })
+
 
 }
